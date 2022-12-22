@@ -1,0 +1,23 @@
+#include<stdio.h>
+#include<unistd.h>
+
+int main(){
+int k = fork();
+if(k==0)
+{
+printf("%d",getpid());
+}
+for(int i = 10000 ; i<20000 ; i++)
+{
+printf("%d",i);
+}
+if(k>0){
+printf("%d",getpid());
+}
+for(int i = 30000;i<50000;i++)
+{
+printf("%d",i); 
+}
+return 0;
+}
+//
