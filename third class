@@ -1,0 +1,26 @@
+#include<stdio.h>
+#include<pthread.in>
+struct stu
+{
+int cat1;
+int cat2;
+int total ;
+}
+s1;
+void* disp(void* st1)
+{
+struct stu *s2 = (struct stu*) &s1;
+s2->total = s2->cat1 + s2->cat2;
+pthread_exit(NULL);
+}
+int main()
+{
+pthread_t t1;
+s1.cat1 = 30;
+s1.cat2 = 35;
+s1.total = 0;
+pthread_create(&t1, NULL, (void*) disp, (void*) &s1);
+printf("%d",s1.total);
+pthread_join(t1, NULL);
+return 0;
+}
